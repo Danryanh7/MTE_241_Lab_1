@@ -59,7 +59,7 @@ int _write(int file, char *ptr, int len) {
 }
 
 // Lab 2
-uint32_t* stackptr;
+// uint32_t* stackptr;
 
 void print_continuously() {
   while (1) {
@@ -132,9 +132,9 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint32_t* MSP_INIT_VAL = *(uint32_t**) 0x0;
+  // uint32_t* MSP_INIT_VAL = *(uint32_t**) 0x0;
   // printf("MSP Init is: %p\n\r", MSP_INIT_VAL);
-  uint32_t PSP_val = (uint32_t)MSP_INIT_VAL - 0x400;
+  // uint32_t PSP_val = (uint32_t)MSP_INIT_VAL - 0x400;
   // __set_PSP(PSP_val);
   // __set_CONTROL(1<<1);
 
@@ -144,15 +144,18 @@ int main(void)
   // print_success();
   // print_failure();
 
-  stackptr = (uint32_t*)PSP_val;
+  // stackptr = (uint32_t*)PSP_val;
 
-  *(--stackptr) = 1<<24; //A magic number, this is xPSR
-  *(--stackptr) = (uint32_t)print_continuously; //the function name
-  for (int i = 0; i < 14; i++) {
-    *(--stackptr) = 0xA; //An arbitrary number
-  }
+  // *(--stackptr) = 1<<24; //A magic number, this is xPSR
+  // *(--stackptr) = (uint32_t)print_continuously; //the function name
+  // for (int i = 0; i < 14; i++) {
+  //   *(--stackptr) = 0xA; //An arbitrary number
+  // }
 
-  asmRunFirstThread();
+  osKernelInitialize();
+  osCreateThread(print_continuously);
+  osKernelStart();
+  // asmRunFirstThread();
 
   while (1)
   {

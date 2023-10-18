@@ -5,7 +5,6 @@ uint32_t* MSP_INIT_VAL;
 uint32_t* LAST_STACK;
 int nThreads = 0;
 thread lab3Thread;
-extern void runFirstThread(void);
 
 void SVC_Handler_Main( unsigned int *svc_args ) {
   unsigned int svc_number;
@@ -18,7 +17,7 @@ void SVC_Handler_Main( unsigned int *svc_args ) {
   switch( svc_number )
   {
     case RUN_FIRST_THREAD:
-      __set_PSP((uint32_t) stackptr);
+      __set_PSP((uint32_t) lab3Thread.sp);
       runFirstThread();
       break;
     case 17: //17 is sort of arbitrarily chosen
@@ -47,8 +46,7 @@ uint32_t* allocate_stack() {
 }
 
 // Creating a new thread
-bool osCreateThread((void*) fncPtr) {
-    fncPtr = (uint32_t*) fncPtr;
+bool osCreateThread(void* fncPtr) {
     uint32_t* stackPtr = allocate_stack();
 
     if (stackPtr == NULL) {
@@ -57,12 +55,24 @@ bool osCreateThread((void*) fncPtr) {
 
     // Setting up the stack from lab 2
     *(--stackPtr) = 1<<24; // xPSR
-    *(--stackptr) = (uint32_t)fncPtr; //the function name
+    *(--stackPtr) = (uint32_t)fncPtr; //the function name
     for (int i = 0; i < 14; i++) {
-        *(--stackptr) = 0xA; //An arbitrary number
+        *(--stackPtr) = 0xA; //An arbitrary number
     }
 
     lab3Thread.sp = stackPtr;
     lab3Thread.thread_function = fncPtr;
     return true;
+}
+
+// Initialize a new thread
+void osKernelInitialize() {
+  MSP_INIT_VAL = *(uint32_t**) 0x0;
+  LAST_STACK = MSP_INIT_VAL - STACK_SIZE;
+}
+
+// Start the thread
+void osKernelStart() {
+  __asm("SVC #3");
+  // runFirstThread();
 }
