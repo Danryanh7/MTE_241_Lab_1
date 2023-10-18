@@ -152,7 +152,6 @@ int main(void)
     *(--stackptr) = 0xA; //An arbitrary number
   }
 
-  allocate_stack();
   asmRunFirstThread();
 
   while (1)

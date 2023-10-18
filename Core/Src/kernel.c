@@ -4,6 +4,7 @@
 uint32_t* MSP_INIT_VAL;
 uint32_t* LAST_STACK;
 int nThreads = 0;
+thread lab3Thread;
 extern void runFirstThread(void);
 
 void SVC_Handler_Main( unsigned int *svc_args ) {
@@ -43,4 +44,25 @@ uint32_t* allocate_stack() {
     uint32_t* topOfStack = LAST_STACK + THREAD_SIZE; 
 
     return topOfStack;
+}
+
+// Creating a new thread
+bool osCreateThread((void*) fncPtr) {
+    fncPtr = (uint32_t*) fncPtr;
+    uint32_t* stackPtr = allocate_stack();
+
+    if (stackPtr == NULL) {
+        return false;
+    }
+
+    // Setting up the stack from lab 2
+    *(--stackPtr) = 1<<24; // xPSR
+    *(--stackptr) = (uint32_t)fncPtr; //the function name
+    for (int i = 0; i < 14; i++) {
+        *(--stackptr) = 0xA; //An arbitrary number
+    }
+
+    lab3Thread.sp = stackPtr;
+    lab3Thread.thread_function = fncPtr;
+    return true;
 }

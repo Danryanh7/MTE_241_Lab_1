@@ -13,3 +13,8 @@ extern void runFirstThread(void);
 void SVC_Handler_Main( unsigned int*);
 uint32_t* allocate_stack();
 extern void runFirstThread(void);
+
+typedef struct k_thread {
+    uint32_t* sp; //stack pointer
+    void (*thread_function)(void*); //function pointer
+} thread;
