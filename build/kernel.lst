@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
   43              		.cfi_def_cfa_offset 8
   44              		.cfi_offset 3, -8
   45              		.cfi_offset 14, -4
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 2
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 2
 
 
   10:Core/Src/kernel.c ****   unsigned int svc_number;
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
   74              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 3
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 3
 
 
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
   57:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   58:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __WEAK
   59:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 4
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 4
 
 
   60:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
  114:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
  115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  116:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 5
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 5
 
 
  117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
  171:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
  172:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  173:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 6
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 6
 
 
  174:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
  228:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  229:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get xPSR Register
  230:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the content of the xPSR Register.
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 7
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 7
 
 
  231:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               xPSR Register value
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
   80 001a 83F30988 		MSR psp, r3
   81              	@ 0 "" 2
   82              	.LVL6:
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 8
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 8
 
 
   83              		.loc 2 279 3 is_stmt 0 view .LVU12
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
  131              	.LFB134:
   33:Core/Src/kernel.c **** 
   34:Core/Src/kernel.c **** // Allocate a new stack
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 9
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 9
 
 
   35:Core/Src/kernel.c **** uint32_t* allocate_stack() {
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
  173              		.cfi_endproc
  174              	.LFE134:
  176              		.section	.text.osCreateThread,"ax",%progbits
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 10
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 10
 
 
  177              		.align	1
@@ -582,7 +582,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
  205              		.loc 1 57 19 is_stmt 0 view .LVU42
  206 000a 4FF08072 		mov	r2, #16777216
  207 000e 40F8042C 		str	r2, [r0, #-4]
-  58:Core/Src/kernel.c ****     *(--stackPtr) = (uint32_t)fncPtr; //the function name
+  58:Core/Src/kernel.c ****     *(--stackPtr) = (uint32_t*)fncPtr; //the function name
  208              		.loc 1 58 5 is_stmt 1 view .LVU43
  209              		.loc 1 58 19 is_stmt 0 view .LVU44
  210 0012 A0F10802 		sub	r2, r0, #8
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
  219 001a 0023     		movs	r3, #0
  220              		.loc 1 59 5 view .LVU49
  221 001c 03E0     		b	.L16
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 11
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 11
 
 
  222              	.LVL21:
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
  264 0038 00000000 		.word	lab3Thread
  265              		.cfi_endproc
  266              	.LFE135:
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 12
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 12
 
 
  268              		.section	.text.osKernelInitialize,"ax",%progbits
@@ -685,7 +685,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
  286              		.loc 1 70 16 view .LVU68
  287 0004 034A     		ldr	r2, .L23
  288 0006 1360     		str	r3, [r2]
-  71:Core/Src/kernel.c ****   LAST_STACK = MSP_INIT_VAL - STACK_SIZE;
+  71:Core/Src/kernel.c ****   LAST_STACK = MSP_INIT_VAL - STACK_SIZE; // questionable... I think its bypassing the main stack
  289              		.loc 1 71 3 is_stmt 1 view .LVU69
  290              		.loc 1 71 29 is_stmt 0 view .LVU70
  291 0008 A3F58053 		sub	r3, r3, #4096
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
  316              		@ args = 0, pretend = 0, frame = 0
  317              		@ frame_needed = 0, uses_anonymous_args = 0
  318              		@ link register save eliminated.
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 13
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 13
 
 
   76:Core/Src/kernel.c ****   __asm("SVC #3");
@@ -727,9 +727,8 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
  321              	@ 76 "Core/Src/kernel.c" 1
  322 0000 03DF     		SVC #3
  323              	@ 0 "" 2
-  77:Core/Src/kernel.c ****   // runFirstThread();
-  78:Core/Src/kernel.c **** }...
- 324              		.loc 1 78 1 is_stmt 0 view .LVU75
+  77:Core/Src/kernel.c **** }...
+ 324              		.loc 1 77 1 is_stmt 0 view .LVU75
  325              		.thumb
  326              		.syntax unified
  327 0002 7047     		bx	lr
@@ -762,34 +761,34 @@ ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 1
  362              		.file 4 "/Users/danielrh/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/
  363              		.file 5 "Core/Inc/kernel.h"
  364              		.file 6 "<built-in>"
-ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s 			page 14
+ARM GAS  /var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 kernel.c
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:21     .rodata.SVC_Handler_Main.str1.4:00000000 $d
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:28     .text.SVC_Handler_Main:00000000 $t
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:34     .text.SVC_Handler_Main:00000000 SVC_Handler_Main
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:117    .text.SVC_Handler_Main:00000034 $d
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:336    .bss.lab3Thread:00000000 lab3Thread
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:124    .text.allocate_stack:00000000 $t
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:130    .text.allocate_stack:00000000 allocate_stack
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:171    .text.allocate_stack:00000024 $d
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:343    .bss.nThreads:00000000 nThreads
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:350    .bss.LAST_STACK:00000000 LAST_STACK
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:177    .text.osCreateThread:00000000 $t
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:183    .text.osCreateThread:00000000 osCreateThread
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:264    .text.osCreateThread:00000038 $d
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:269    .text.osKernelInitialize:00000000 $t
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:275    .text.osKernelInitialize:00000000 osKernelInitialize
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:300    .text.osKernelInitialize:00000014 $d
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:357    .bss.MSP_INIT_VAL:00000000 MSP_INIT_VAL
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:306    .text.osKernelStart:00000000 $t
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:312    .text.osKernelStart:00000000 osKernelStart
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:333    .bss.lab3Thread:00000000 $d
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:340    .bss.nThreads:00000000 $d
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:347    .bss.LAST_STACK:00000000 $d
-/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc3XaHNR.s:354    .bss.MSP_INIT_VAL:00000000 $d
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:21     .rodata.SVC_Handler_Main.str1.4:00000000 $d
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:28     .text.SVC_Handler_Main:00000000 $t
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:34     .text.SVC_Handler_Main:00000000 SVC_Handler_Main
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:117    .text.SVC_Handler_Main:00000034 $d
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:336    .bss.lab3Thread:00000000 lab3Thread
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:124    .text.allocate_stack:00000000 $t
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:130    .text.allocate_stack:00000000 allocate_stack
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:171    .text.allocate_stack:00000024 $d
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:343    .bss.nThreads:00000000 nThreads
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:350    .bss.LAST_STACK:00000000 LAST_STACK
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:177    .text.osCreateThread:00000000 $t
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:183    .text.osCreateThread:00000000 osCreateThread
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:264    .text.osCreateThread:00000038 $d
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:269    .text.osKernelInitialize:00000000 $t
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:275    .text.osKernelInitialize:00000000 osKernelInitialize
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:300    .text.osKernelInitialize:00000014 $d
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:357    .bss.MSP_INIT_VAL:00000000 MSP_INIT_VAL
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:306    .text.osKernelStart:00000000 $t
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:312    .text.osKernelStart:00000000 osKernelStart
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:333    .bss.lab3Thread:00000000 $d
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:340    .bss.nThreads:00000000 $d
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:347    .bss.LAST_STACK:00000000 $d
+/var/folders/19/48sc_t714fz_96wrj2kckpy80000gn/T//cc9HhwpD.s:354    .bss.MSP_INIT_VAL:00000000 $d
 
 UNDEFINED SYMBOLS
 runFirstThread

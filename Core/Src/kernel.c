@@ -55,7 +55,7 @@ bool osCreateThread(void* fncPtr) {
 
     // Setting up the stack from lab 2
     *(--stackPtr) = 1<<24; // xPSR
-    *(--stackPtr) = (uint32_t)fncPtr; //the function name
+    *(--stackPtr) = (uint32_t*)fncPtr; //the function name
     for (int i = 0; i < 14; i++) {
         *(--stackPtr) = 0xA; //An arbitrary number
     }
@@ -68,11 +68,10 @@ bool osCreateThread(void* fncPtr) {
 // Initialize a new thread
 void osKernelInitialize() {
   MSP_INIT_VAL = *(uint32_t**) 0x0;
-  LAST_STACK = MSP_INIT_VAL - STACK_SIZE;
+  LAST_STACK = MSP_INIT_VAL - STACK_SIZE; // questionable... I think its bypassing the main stack
 }
 
 // Start the thread
 void osKernelStart() {
   __asm("SVC #3");
-  // runFirstThread();
 }
