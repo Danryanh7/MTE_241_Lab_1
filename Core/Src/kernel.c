@@ -33,7 +33,7 @@ void SVC_Handler_Main( unsigned int *svc_args ) {
 
 // Allocate a new stack
 uint32_t* allocate_stack() {
-    if ((nThreads * THREAD_SIZE) + STACK_SIZE > MAX_STACK_SIZE) {
+    if (((nThreads+1) * THREAD_SIZE) + STACK_SIZE > MAX_STACK_SIZE) {
         return NULL;
     }
 

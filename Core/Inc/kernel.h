@@ -7,13 +7,11 @@
 #define THREAD_SIZE 0x400
 #define RUN_FIRST_THREAD 0x3
 
-// extern uint32_t* stackptr;
-
+extern void runFirstThread(void); // correct
+void osKernelInitialize();
 void SVC_Handler_Main(unsigned int*);
 uint32_t* allocate_stack();
-extern void runFirstThread(void); // correct
 bool osCreateThread(void*);
-void osKernelInitialize();
 void osKernelStart();
 
 typedef struct k_thread {
