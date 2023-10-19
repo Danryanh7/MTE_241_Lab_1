@@ -1,9 +1,8 @@
-#include "stm32f4xx_hal.h"
 #include "kernel.h"
 
 uint32_t* MSP_INIT_VAL;
 uint32_t* LAST_STACK;
-int nThreads = 0;
+int nThreads;
 thread lab3Thread;
 
 void SVC_Handler_Main( unsigned int *svc_args ) {
@@ -69,6 +68,9 @@ bool osCreateThread(void* fncPtr) {
 void osKernelInitialize() {
   MSP_INIT_VAL = *(uint32_t**) 0x0;
   LAST_STACK = MSP_INIT_VAL - STACK_SIZE; // questionable... I think its bypassing the main stack
+  nThreads = 0;
+  lab3Thread.sp = LAST_STACK;
+  lab3Thread.thread_function = NULL;
 }
 
 // Start the thread

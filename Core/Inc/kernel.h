@@ -1,6 +1,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include "stm32f4xx_hal.h"
+#include "main.h"
 
 #define MAX_STACK_SIZE 0x4000
 #define STACK_SIZE 0x400
