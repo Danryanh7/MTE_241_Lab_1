@@ -61,16 +61,22 @@ int _write(int file, char *ptr, int len) {
 
 void print_continuously() {
   while (1) {
-      printf("Hello, world!\n");
+    printf("First thread!\n");
+    osYield();
   }
-} 
+}
+
+void print_second_thread() {
+  while (1) {
+    printf("Second thread!\n");
+    osYield();
+  }
+}
 
 void jumpAssembly(void* fcn)
 {
 __asm("MOV PC, R0");
 }
-
-
 
 void print_success(void) {
   __asm("SVC #17");
@@ -152,6 +158,7 @@ int main(void)
 
   osKernelInitialize();
   osCreateThread(print_continuously);
+  osCreateThread(print_second_thread);
   osKernelStart();
   // asmRunFirstThread();
 
