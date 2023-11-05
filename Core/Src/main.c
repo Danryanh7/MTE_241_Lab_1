@@ -59,7 +59,7 @@ int _write(int file, char *ptr, int len) {
 // Lab 2
 // uint32_t* stackptr;
 
-void print_continuously() {
+void print_first_thread() {
   while (1) {
     printf("First thread!\n");
     osYield();
@@ -143,21 +143,21 @@ int main(void)
   // __set_CONTROL(1<<1);
 
   /* Lab 2 */
-  // print_continuously();
-  // jumpAssembly((void*)print_continuously);
+  // print_first_thread();
+  // jumpAssembly((void*)print_first_thread);
   // print_success();
   // print_failure();
 
   // stackptr = (uint32_t*)PSP_val;
 
   // *(--stackptr) = 1<<24; //A magic number, this is xPSR
-  // *(--stackptr) = (uint32_t)print_continuously; //the function name
+  // *(--stackptr) = (uint32_t)print_first_thread; //the function name
   // for (int i = 0; i < 14; i++) {
   //   *(--stackptr) = 0xA; //An arbitrary number
   // }
 
   osKernelInitialize();
-  osCreateThread(print_continuously);
+  osCreateThread(print_first_thread);
   osCreateThread(print_second_thread);
   osKernelStart();
   // asmRunFirstThread();

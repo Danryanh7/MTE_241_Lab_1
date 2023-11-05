@@ -15,13 +15,13 @@
 #define _ICSR *(uint32_t*)0xE000ED04 //This lets us trigger PendSV
 
 extern void runFirstThread(void); // correct
-void osKernelInitialize();
+void osKernelInitialize(void);
 void SVC_Handler_Main(unsigned int*);
-uint32_t* allocate_stack();
+uint32_t* allocate_stack(void);
 bool osCreateThread(void*);
-void osKernelStart();
-void osSched();
-void osYield();
+void osKernelStart(void);
+void osSched(void);
+void osYield(void);
 
 typedef struct k_thread {
     uint32_t* sp; //stack pointer

@@ -6,7 +6,7 @@ int nThreads;
 int currentThread;
 thread threadArray[MAX_THREADS];
 
-void osSched() {
+void osSched(void) {
   // Round robin implementation
   threadArray[currentThread].sp = (uint32_t*)(__get_PSP() - 8*4);
   currentThread = (currentThread+1)%nThreads;
@@ -49,7 +49,7 @@ void SVC_Handler_Main( unsigned int *svc_args ) {
 }
 
 // Allocate a new stack
-uint32_t* allocate_stack() {
+uint32_t* allocate_stack(void) {
     if (((nThreads+1) * THREAD_SIZE) + STACK_SIZE > MAX_STACK_SIZE) {
         return NULL;
     }
@@ -83,7 +83,7 @@ bool osCreateThread(void* fncPtr) {
 }
 
 // Initialize a new thread
-void osKernelInitialize() {
+void osKernelInitialize(void) {
   MSP_INIT_VAL = *(uint32_t**) 0x0;
   LAST_STACK = MSP_INIT_VAL - STACK_SIZE; // questionable... I think its bypassing the main stack
   nThreads = 0;
@@ -97,6 +97,6 @@ void osKernelInitialize() {
 }
 
 // Start the thread
-void osKernelStart() {
+void osKernelStart(void) {
   __asm("SVC #3");
 }
