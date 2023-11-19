@@ -159,7 +159,7 @@ int main(void)
 
   osKernelInitialize();
   osCreateThread(print_first_thread);
-  osCreateThreadWithDeadline(print_second_thread, 1000);
+  osCreateThreadWithDeadline(print_second_thread, 200);
   osKernelStart();
   // asmRunFirstThread();
 

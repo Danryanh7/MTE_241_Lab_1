@@ -16,7 +16,7 @@
 #define SHPR3 *(uint32_t*)0xE000ED20 // PendSV is bits 23-16
 #define _ICSR *(uint32_t*)0xE000ED04 //This lets us trigger PendSV
 
-extern void runFirstThread(void); // correct
+extern void runFirstThread(void);
 void osKernelInitialize(void);
 void SVC_Handler_Main(unsigned int*);
 uint32_t* allocate_stack(void);

@@ -20,6 +20,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "kernel.h"
 #include "stm32f4xx_it.h"
+extern thread threadArray[MAX_THREADS];
+extern int currentThread;
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -187,8 +189,21 @@ void SysTick_Handler(void)
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
-  _ICSR |= 1<<28;
-  __asm("isb");
+  if (threadArray[currentThread].runtime > 0)
+  {
+    threadArray[currentThread].runtime--;
+  }
+
+  // Check if the runtime has reached zero.
+  if (threadArray[currentThread].runtime == 0)
+  {
+    // Reset the runtime to the thread's timeslice.
+    threadArray[currentThread].runtime = threadArray[currentThread].timeslice;
+
+    // Trigger a context switch using PendSV.
+    _ICSR |= 1 << 28;
+    __asm("isb"); // Ensure immediate effect of PendSV.
+  }
   /* USER CODE END SysTick_IRQn 1 */
 }
 
