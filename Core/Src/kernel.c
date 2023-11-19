@@ -69,11 +69,25 @@ bool osCreateThread(void* fncPtr) {
         return false;
     }
 
+    uint32_t* interestingValue = (uint32_t*)malloc(sizeof(uint32_t));
+    // uint32_t interestingValue = 0xBA5EBA11; // This holds the interesting value.
+    *interestingValue = 0xBA5EBA11;
+
     // Setting up the stack from lab 2
     *(--stackPtr) = 1<<24; // xPSR
-    *(--stackPtr) = (uint32_t)fncPtr; //the function name
-    for (int i = 0; i < 14; i++) {
-        *(--stackPtr) = 0xA; //An arbitrary number
+    *(--stackPtr) = (uint32_t)fncPtr; // PC
+
+    // LR, R12, R3, R2, R1
+    for (int i = 0; i < 5; i++) {
+        *(--stackPtr) = 0xA;
+    }
+
+    // R0
+    *(--stackPtr) = (uint32_t)interestingValue;
+
+    // R11, R10, R9, R8, R7, R6, R5, R4
+    for (int i = 0; i < 8; i++) {
+        *(--stackPtr) = 0xA;
     }
 
     threadArray[nThreads].sp = stackPtr;

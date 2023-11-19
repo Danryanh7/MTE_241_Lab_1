@@ -59,16 +59,18 @@ int _write(int file, char *ptr, int len) {
 // Lab 2
 // uint32_t* stackptr;
 
-void print_first_thread() {
+void print_first_thread(void* args) {
+  uint32_t input = *(uint32_t*)args;
   while (1) {
-    printf("First thread!\n");
+    printf("Thread 1: r0 has 0x%lX\n", input);
     osYield();
   }
 }
 
-void print_second_thread() {
+void print_second_thread(void* args) {
+  uint32_t input = *(uint32_t*)args;
   while (1) {
-    printf("Second thread!\n");
+    printf("Thread 2: r0 has 0x%lX\n", input);
     osYield();
   }
 }
