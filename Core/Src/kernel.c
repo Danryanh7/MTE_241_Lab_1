@@ -61,7 +61,7 @@ uint32_t* allocate_stack(void) {
     return topOfStack;
 }
 
-// Creating a new thread
+// Creating a new thread (default timeslice)
 bool osCreateThread(void* fncPtr) {
     uint32_t* stackPtr = allocate_stack();
 
@@ -92,6 +92,45 @@ bool osCreateThread(void* fncPtr) {
 
     threadArray[nThreads].sp = stackPtr;
     threadArray[nThreads].thread_function = fncPtr;
+    threadArray[nThreads].timeslice = DEFAULT_TIMESLICE;
+    threadArray[nThreads].runtime = DEFAULT_TIMESLICE;
+    nThreads += 1;
+    return true;
+}
+
+// Creating a new thread (custom timeslice)
+bool osCreateThreadWithDeadline(void* fncPtr, uint32_t deadline) {
+    uint32_t* stackPtr = allocate_stack();
+
+    if (stackPtr == NULL) {
+        return false;
+    }
+
+    uint32_t* interestingValue = (uint32_t*)malloc(sizeof(uint32_t));
+    // uint32_t interestingValue = 0xBA5EBA11; // This holds the interesting value.
+    *interestingValue = 0xBA5EBA11;
+
+    // Setting up the stack from lab 2
+    *(--stackPtr) = 1<<24; // xPSR
+    *(--stackPtr) = (uint32_t)fncPtr; // PC
+
+    // LR, R12, R3, R2, R1
+    for (int i = 0; i < 5; i++) {
+        *(--stackPtr) = 0xA;
+    }
+
+    // R0
+    *(--stackPtr) = (uint32_t)interestingValue;
+
+    // R11, R10, R9, R8, R7, R6, R5, R4
+    for (int i = 0; i < 8; i++) {
+        *(--stackPtr) = 0xA;
+    }
+
+    threadArray[nThreads].sp = stackPtr;
+    threadArray[nThreads].thread_function = fncPtr;
+    threadArray[nThreads].timeslice = deadline;
+    threadArray[nThreads].runtime = deadline;
     nThreads += 1;
     return true;
 }

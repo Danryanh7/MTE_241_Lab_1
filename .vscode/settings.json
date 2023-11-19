@@ -3,6 +3,8 @@
     "cortex-debug.openocdPath": "/Users/danielrh/Library/Application Support/Code/User/globalStorage/bmd.stm32-for-vscode/@xpack-dev-tools/openocd/0.12.0-2.1/.content/bin/openocd",
     "C_Cpp.default.compilerPath": "/usr/bin/gcc",
     "files.associations": {
-        "main.h": "c"
+        "main.h": "c",
+        "kernel.h": "c",
+        "stm32f4xx_it.h": "c"
     }
 }

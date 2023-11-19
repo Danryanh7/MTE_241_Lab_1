@@ -71,7 +71,6 @@ void print_second_thread(void* args) {
   uint32_t input = *(uint32_t*)args;
   while (1) {
     printf("Thread 2: r0 has 0x%lX\n", input);
-    osYield();
   }
 }
 
@@ -160,7 +159,7 @@ int main(void)
 
   osKernelInitialize();
   osCreateThread(print_first_thread);
-  osCreateThread(print_second_thread);
+  osCreateThreadWithDeadline(print_second_thread, 1000);
   osKernelStart();
   // asmRunFirstThread();
 
