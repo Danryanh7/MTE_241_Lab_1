@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 extern void runFirstThread(void);
+volatile int globalCounter = 0;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,9 +57,6 @@ int _write(int file, char *ptr, int len) {
     return len;
 }
 
-// Lab 2
-// uint32_t* stackptr;
-
 void print_first_thread(void* args) {
   uint32_t input = *(uint32_t*)args;
   while (1) {
@@ -71,6 +69,23 @@ void print_second_thread(void* args) {
   uint32_t input = *(uint32_t*)args;
   while (1) {
     printf("Thread 2: r0 has 0x%lX\n", input);
+  }
+}
+
+void printingThread(void *args) {
+  while (1) {
+    printf("Global counter is: %d\n", globalCounter);
+  }
+}
+
+void mathThread(void *args) {
+  mathStruct *mathArgs = (mathStruct *)args;
+  int firstAdd = mathArgs->addMem;
+  int firstMult = mathArgs->subMem;
+  while (1) {
+    globalCounter += firstAdd;
+    globalCounter -= firstMult;
+    osYield();
   }
 }
 
@@ -129,37 +144,12 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  // char m = 'm';
-  // printf("Hello, world!\n");
-  // fflush(stdout);
-  // HAL_UART_Transmit(&huart2, (uint8_t*)&m, 1, HAL_MAX_DELAY);
+  mathStruct myArg = { .addMem = 2, .subMem = 1 };
   /* USER CODE END 2 */
 
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  // uint32_t* MSP_INIT_VAL = *(uint32_t**) 0x0;
-  // printf("MSP Init is: %p\n\r", MSP_INIT_VAL);
-  // uint32_t PSP_val = (uint32_t)MSP_INIT_VAL - 0x400;
-  // __set_PSP(PSP_val);
-  // __set_CONTROL(1<<1);
-
-  /* Lab 2 */
-  // print_first_thread();
-  // jumpAssembly((void*)print_first_thread);
-  // print_success();
-  // print_failure();
-
-  // stackptr = (uint32_t*)PSP_val;
-
-  // *(--stackptr) = 1<<24; //A magic number, this is xPSR
-  // *(--stackptr) = (uint32_t)print_first_thread; //the function name
-  // for (int i = 0; i < 14; i++) {
-  //   *(--stackptr) = 0xA; //An arbitrary number
-  // }
-
   osKernelInitialize();
-  osCreateThread(print_first_thread);
-  osCreateThreadWithDeadline(print_second_thread, 200);
+  osCreateThreadWithDeadline(printingThread, NULL, 5);
+  osCreateThreadWithDeadline(mathThread, &myArg, 20);
   osKernelStart();
   // asmRunFirstThread();
 

@@ -20,15 +20,20 @@ extern void runFirstThread(void);
 void osKernelInitialize(void);
 void SVC_Handler_Main(unsigned int*);
 uint32_t* allocate_stack(void);
-bool osCreateThread(void*);
-bool osCreateThreadWithDeadline(void*, uint32_t);
+bool osCreateThread(void*, void*);
+bool osCreateThreadWithDeadline(void*, void*, uint32_t);
 void osKernelStart(void);
 void osSched(void);
 void osYield(void);
 
 typedef struct k_thread {
-    uint32_t* sp; //stack pointer
-    void (*thread_function)(void*); //function pointer
+    uint32_t* sp;
+    void (*thread_function)(void*);
     uint32_t timeslice;
     uint32_t runtime;
 } thread;
+
+typedef struct {
+    int addMem;
+    int subMem;
+} mathStruct;

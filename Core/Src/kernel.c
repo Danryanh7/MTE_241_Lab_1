@@ -62,16 +62,16 @@ uint32_t* allocate_stack(void) {
 }
 
 // Creating a new thread (default timeslice)
-bool osCreateThread(void* fncPtr) {
+bool osCreateThread(void* fncPtr, void* args) {
     uint32_t* stackPtr = allocate_stack();
 
     if (stackPtr == NULL) {
         return false;
     }
 
-    uint32_t* interestingValue = (uint32_t*)malloc(sizeof(uint32_t));
-    // uint32_t interestingValue = 0xBA5EBA11; // This holds the interesting value.
-    *interestingValue = 0xBA5EBA11;
+    // uint32_t* interestingValue = (uint32_t*)malloc(sizeof(uint32_t));
+
+    // *interestingValue = 0xBA5EBA11;
 
     // Setting up the stack from lab 2
     *(--stackPtr) = 1<<24; // xPSR
@@ -83,7 +83,7 @@ bool osCreateThread(void* fncPtr) {
     }
 
     // R0
-    *(--stackPtr) = (uint32_t)interestingValue;
+    *(--stackPtr) = (uint32_t)args;
 
     // R11, R10, R9, R8, R7, R6, R5, R4
     for (int i = 0; i < 8; i++) {
@@ -99,16 +99,16 @@ bool osCreateThread(void* fncPtr) {
 }
 
 // Creating a new thread (custom timeslice)
-bool osCreateThreadWithDeadline(void* fncPtr, uint32_t deadline) {
+bool osCreateThreadWithDeadline(void* fncPtr, void* args, uint32_t deadline) {
     uint32_t* stackPtr = allocate_stack();
 
     if (stackPtr == NULL) {
         return false;
     }
 
-    uint32_t* interestingValue = (uint32_t*)malloc(sizeof(uint32_t));
-    // uint32_t interestingValue = 0xBA5EBA11; // This holds the interesting value.
-    *interestingValue = 0xBA5EBA11;
+    // uint32_t* interestingValue = (uint32_t*)malloc(sizeof(uint32_t));
+
+    // *interestingValue = 0xBA5EBA11;
 
     // Setting up the stack from lab 2
     *(--stackPtr) = 1<<24; // xPSR
@@ -120,7 +120,7 @@ bool osCreateThreadWithDeadline(void* fncPtr, uint32_t deadline) {
     }
 
     // R0
-    *(--stackPtr) = (uint32_t)interestingValue;
+    *(--stackPtr) = (uint32_t)args;
 
     // R11, R10, R9, R8, R7, R6, R5, R4
     for (int i = 0; i < 8; i++) {
