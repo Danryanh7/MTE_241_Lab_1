@@ -74,7 +74,7 @@ void print_second_thread(void* args) {
 
 void printingThread(void *args) {
   while (1) {
-    printf("Global counter is: %d\n", globalCounter);
+    printf("Count: %d\n", globalCounter);
   }
 }
 
@@ -149,7 +149,7 @@ int main(void)
 
   osKernelInitialize();
   osCreateThreadWithDeadline(printingThread, NULL, 5);
-  osCreateThreadWithDeadline(mathThread, &myArg, 20);
+  osCreateThread(mathThread, &myArg);
   osKernelStart();
   // asmRunFirstThread();
 
