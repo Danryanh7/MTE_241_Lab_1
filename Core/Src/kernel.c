@@ -15,6 +15,7 @@ void osSched(void) {
 }
 
 void osYield(void) {
+  threadArray[currentThread].runtime = threadArray[currentThread].timeslice;
   __asm("SVC #4");
 }
 
