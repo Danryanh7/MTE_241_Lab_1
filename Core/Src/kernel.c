@@ -70,10 +70,6 @@ bool osCreateThread(void* fncPtr, void* args) {
         return false;
     }
 
-    // uint32_t* interestingValue = (uint32_t*)malloc(sizeof(uint32_t));
-
-    // *interestingValue = 0xBA5EBA11;
-
     // Setting up the stack from lab 2
     *(--stackPtr) = 1<<24; // xPSR
     *(--stackPtr) = (uint32_t)fncPtr; // PC
@@ -106,10 +102,6 @@ bool osCreateThreadWithDeadline(void* fncPtr, void* args, uint32_t deadline) {
     if (stackPtr == NULL) {
         return false;
     }
-
-    // uint32_t* interestingValue = (uint32_t*)malloc(sizeof(uint32_t));
-
-    // *interestingValue = 0xBA5EBA11;
 
     // Setting up the stack from lab 2
     *(--stackPtr) = 1<<24; // xPSR
